@@ -43,7 +43,6 @@ public class FileOptionsScreen implements Screen{
 
             case 1: // Add File
                 this.AddFile();
-
                 this.Show();
                 break;
             case 2: // Delete File
@@ -93,11 +92,8 @@ public class FileOptionsScreen implements Screen{
     public void DeleteFile() {
 
         System.out.println("Please Enter the Filename:");
-
         String fileName = this.getInputString();
-
-        System.out.println("You are deleting a file named: " + fileName);
-
+        System.out.println("" + fileName);
         Path path = FileSystems.getDefault().getPath(Directory.name + fileName).toAbsolutePath();
         File file = path.toFile();
         if (file.delete()) {
@@ -111,16 +107,10 @@ public class FileOptionsScreen implements Screen{
     public void SearchFile() {
 
         Boolean found = false;
-
         System.out.println("Please Enter the Filename:");
-
         String fileName = this.getInputString();
-
         System.out.println("You are searching for a file named: " + fileName);
-
         ArrayList<File> files = dir.getFiles();
-
-
         for(int i = 0; i < files.size(); i++) {
             if(files.get(i).getName().equals(fileName)) {
                 System.out.println("Found " + fileName);
